@@ -17,6 +17,8 @@ BuildRoot: %{_tmppath}/%{name}-buildroot
 #BuildRequires: ImageMagick
 BuildRequires: pygtk2.0-devel
 BuildRequires: desktop-file-utils
+#needed to build translations, for now
+BuildRequires: perl-XML-Parser
 Requires: gstreamer0.10-gnomevfs gnome-python-gnomevfs
 Requires: gstreamer0.10-python
 Requires: pygtk2.0-libglade
