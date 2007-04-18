@@ -1,29 +1,29 @@
-%define name	soundconverter
-%define version	0.9.0
-%define pre alpha1
-%define fversion %version-%pre
-%define release %mkrel 0.%pre.1
+%define name soundconverter
+%define version 0.9.4
+%define release %mkrel 1
 
-Name: 	 	%{name}
-Summary: 	Sound converter application for the GNOME environment
-Version: 	%{version}
-Release: 	%{release}
+Name: %{name}
+Summary: Sound converter application for the GNOME environment
+Version: %{version}
+Release: %{release}
 
-Source:		http://download.berlios.de/soundconverter/%{name}-%{fversion}.tar.bz2
-Patch: soundconverter-0.9.0-alpha1-missing.patch
-URL:		http://soundconverter.berlios.de/
-License:	GPL
-Group:		Sound
-BuildRoot:	%{_tmppath}/%{name}-buildroot
-#BuildRequires:  ImageMagick
-BuildRequires:  pygtk2.0-devel
-BuildRequires:  desktop-file-utils
-Requires:	gstreamer0.10-gnomevfs gnome-python-gnomevfs
-Requires:	gstreamer0.10-python
-Requires:	pygtk2.0-libglade
-Requires:	gnome-python-gconf 
-Requires:	gnome-python
-BuildArch:	noarch
+Source: http://download.berlios.de/soundconverter/%{name}-%{version}.tar.bz2
+Patch0: %{name}-0.9.4-fr.po.patch
+Patch1: %{name}-0.9.4-menu-icon.patch
+URL: http://soundconverter.berlios.de/
+License: GPL
+Group: Sound
+BuildRoot: %{_tmppath}/%{name}-buildroot
+#BuildRequires: ImageMagick
+BuildRequires: pygtk2.0-devel
+BuildRequires: desktop-file-utils
+Requires: gstreamer0.10-gnomevfs gnome-python-gnomevfs
+Requires: gstreamer0.10-python
+Requires: pygtk2.0-libglade
+Requires: gnome-python-gconf 
+Requires: gnome-python
+#configure fails if noarch
+#BuildArch: noarch
 #Suggests: gstreamer0.10-lame
 
 %description
@@ -35,8 +35,10 @@ NOTE: To create MP3 files, you will have to install gstreamer0.10-lame
 yourself.
 
 %prep
-%setup -q -n %name-%fversion
-%patch -p1 -b .missing
+%setup -q -n %name-%version
+%patch0 -p1
+%patch1 -p1
+perl -pi -e "s|pixmapsdir = \\\$\(datadir\)/pixmaps|pixmapsdir = \\\$\(datadir\)/icons|" data/Makefile.in
 
 %build
 %configure2_5x
@@ -57,7 +59,7 @@ perl -pi -e "s/guillaume.bedot wanadoo.fr/littletux zarb.org/" %buildroot%_bindi
 #menu
 mkdir -p %buildroot%{_menudir}
 cat << EOF > %buildroot%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="sound_section.png" needs="x11" title="Sound Converter" longtitle="Change sound file formats" section="Multimedia/Sound" xdg="true"
+?package(%{name}): command="%{name}" icon="soundconverter-icon.png" needs="x11" title="Sound Converter" longtitle="Change sound file formats" section="Multimedia/Sound" xdg="true"
 EOF
 desktop-file-install --vendor="" \
   --remove-category="Application" \
@@ -85,4 +87,4 @@ rm -rf %buildroot
 %{_mandir}/man1/*
 %{_menudir}/%name
 %{_datadir}/applications/%{name}.desktop
-
+%{_datadir}/icons/%{name}-icon.png
