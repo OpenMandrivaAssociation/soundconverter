@@ -48,21 +48,8 @@ rm -rf %buildroot
 
 perl -pi -e "s/guillaume.bedot wanadoo.fr/littletux zarb.org/" %buildroot%_bindir/soundconverter
 
-#man page
-#mkdir -p %buildroot/%_mandir/man1
-#cp *.1 %buildroot/%_mandir/man1/
-#bzip2 %buildroot/%_mandir/man1/*.1
-
-
-#menu
-mkdir -p %buildroot%{_menudir}
-cat << EOF > %buildroot%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="soundconverter-icon.png" needs="x11" title="Sound Converter" longtitle="Change sound file formats" section="Multimedia/Sound" xdg="true"
-EOF
 desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --remove-category="Multimedia" \
-  --add-category="X-MandrivaLinux-Multimedia-Sound" \
+  --add-category="Audio" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 
@@ -83,6 +70,5 @@ rm -rf %buildroot
 %{_bindir}/%name
 %{_datadir}/%name
 %{_mandir}/man1/*
-%{_menudir}/%name
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/*.desktop
 %{_datadir}/icons/%{name}-icon.png
