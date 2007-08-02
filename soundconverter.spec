@@ -14,6 +14,7 @@ Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
 #BuildRequires: ImageMagick
 BuildRequires: pygtk2.0-devel
+BuildRequires: gnome-python
 BuildRequires: desktop-file-utils
 #needed to build translations, for now
 BuildRequires: perl-XML-Parser
@@ -37,6 +38,7 @@ yourself.
 %prep
 %setup -q -n %name-%version
 perl -pi -e "s|pixmapsdir = \\\$\(datadir\)/pixmaps|pixmapsdir = \\\$\(datadir\)/icons|" data/Makefile.in
+sed -i -e 's|Name=No name||' data/soundconverter.desktop*
 
 %build
 %configure2_5x
