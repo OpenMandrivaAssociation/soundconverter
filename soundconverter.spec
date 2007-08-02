@@ -1,5 +1,5 @@
 %define name soundconverter
-%define version 0.9.4
+%define version 0.9.7
 %define release %mkrel 1
 
 Name: %{name}
@@ -8,10 +8,8 @@ Version: %{version}
 Release: %{release}
 
 Source: http://download.berlios.de/soundconverter/%{name}-%{version}.tar.bz2
-Patch0: %{name}-0.9.4-fr.po.patch
-Patch1: %{name}-0.9.4-menu-icon.patch
 URL: http://soundconverter.berlios.de/
-License: GPL
+License: GPLv3
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
 #BuildRequires: ImageMagick
@@ -38,8 +36,6 @@ yourself.
 
 %prep
 %setup -q -n %name-%version
-%patch0 -p1
-%patch1 -p1
 perl -pi -e "s|pixmapsdir = \\\$\(datadir\)/pixmaps|pixmapsdir = \\\$\(datadir\)/icons|" data/Makefile.in
 
 %build
