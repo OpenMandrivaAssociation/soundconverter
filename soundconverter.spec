@@ -62,9 +62,11 @@ rm -rf %buildroot
 
 %post
 %update_menus
-		
+%update_icon_cache hicolor
+
 %postun
 %clean_menus
+%clean_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(-,root,root)
@@ -73,4 +75,4 @@ rm -rf %buildroot
 %{_datadir}/%name
 %{_mandir}/man1/*
 %{_datadir}/applications/*.desktop
-%{_datadir}/icons/%{name}-icon.png
+%{_iconsdir}/hicolor/*/apps/*
