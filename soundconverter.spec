@@ -11,6 +11,7 @@ Source: http://download.berlios.de/soundconverter/%{name}-%{version}.tar.bz2
 URL: http://soundconverter.berlios.de/
 License: GPLv3
 Group: Sound
+BuildRoot: %{_tmppath}/%{name}-buildroot
 #BuildRequires: ImageMagick
 BuildRequires: pygtk2.0-devel
 BuildRequires: gnome-python
