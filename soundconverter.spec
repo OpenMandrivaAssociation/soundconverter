@@ -1,5 +1,5 @@
 %define name soundconverter
-%define version 0.9.7
+%define version 0.9.8
 %define release %mkrel 1
 
 Name: %{name}
