@@ -1,10 +1,6 @@
-%define name soundconverter
-%define version 0.9.8
-%define release %mkrel 1
-
 Summary:	Sound converter application for the GNOME environment
 Name:		soundconverter
-Version:	0.9.8
+Version:	0.9.9
 Release:	%mkrel 1
 License:	GPLv3
 Group:		Sound
