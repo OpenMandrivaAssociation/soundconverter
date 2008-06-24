@@ -1,7 +1,7 @@
 Summary:	Sound converter application for the GNOME environment
 Name:		soundconverter
 Version:	1.3.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv3
 Group:		Sound
 URL:		http://soundconverter.berlios.de/
@@ -13,6 +13,7 @@ BuildRequires:	gnome-python
 BuildRequires:	desktop-file-utils
 #needed to build translations, for now
 BuildRequires:	perl(XML::Parser)
+BuildArch:	noarch
 Requires:	gstreamer0.10-gnomevfs
 Requires:	gnome-python-gnomevfs
 Requires:	gstreamer0.10-python
