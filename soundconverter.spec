@@ -6,23 +6,20 @@ License:	GPLv3
 Group:		Sound
 URL:		http://soundconverter.berlios.de/
 Source:		http://download.berlios.de/soundconverter/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-buildroot
-#BuildRequires:	ImageMagick
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	gnome-python
 BuildRequires:	desktop-file-utils
-#needed to build translations, for now
 BuildRequires:	perl(XML::Parser)
-BuildArch:	noarch
+BuildRequires:	intltool
 Requires:	gstreamer0.10-gnomevfs
 Requires:	gnome-python-gnomevfs
 Requires:	gstreamer0.10-python
 Requires:	pygtk2.0-libglade
 Requires:	gnome-python-gconf 
 Requires:	gnome-python
-#configure	fails if noarch
-#BuildArch:	noarch
 #Suggests: gstreamer0.10-lame
+BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 SoundConverter is a simple sound converter application for the GNOME
