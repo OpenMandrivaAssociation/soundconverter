@@ -1,11 +1,11 @@
 Summary:	Sound converter application for the GNOME environment
 Name:		soundconverter
-Version:	1.4.4
+Version:	1.5.3
 Release:	%mkrel 1
 License:	GPLv3
 Group:		Sound
 URL:		http://soundconverter.berlios.de/
-Source0:	http://download.berlios.de/soundconverter/%{name}-%{version}.tar.bz2
+Source0:	http://download.berlios.de/soundconverter/%{name}-%{version}.tar.gz
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	gnome-python
 BuildRequires:	desktop-file-utils
@@ -31,8 +31,6 @@ yourself.
 
 %prep
 %setup -q
-perl -pi -e "s|pixmapsdir = \\\$\(datadir\)/pixmaps|pixmapsdir = \\\$\(datadir\)/icons|" data/Makefile.in
-sed -i -e 's|Name=No name||' data/soundconverter.desktop*
 
 %build
 %configure2_5x
@@ -42,8 +40,6 @@ sed -i -e 's|Name=No name||' data/soundconverter.desktop*
 rm -rf %{buildroot}
 %makeinstall_std
 
-perl -pi -e "s/guillaume.bedot wanadoo.fr/littletux zarb.org/" %{buildroot}%{_bindir}/soundconverter
-
 desktop-file-install \
   --add-category="Audio" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
@@ -52,18 +48,6 @@ desktop-file-install \
 
 %clean
 rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%clean_icon_cache hicolor
-%endif
 
 %files -f %{name}.lang
 %defattr(-,root,root)
