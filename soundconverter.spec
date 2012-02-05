@@ -1,11 +1,11 @@
 Summary:	Sound converter application for the GNOME environment
 Name:		soundconverter
-Version:	1.5.4
-Release:	%mkrel 1
+Version:	2.0.1
+Release:	1
 License:	GPLv3
 Group:		Sound
 URL:		http://soundconverter.berlios.de/
-Source0:	http://download.berlios.de/soundconverter/%{name}-%{version}.tar.gz
+Source0:	http://launchpad.net/soundconverter/trunk/2.0.1/+download/%{name}-%{version}.tar.xz
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	gnome-python
 BuildRequires:	desktop-file-utils
@@ -19,7 +19,6 @@ Requires:	gnome-python-gconf
 Requires:	gnome-python
 #Suggests: gstreamer0.10-lame
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 SoundConverter is a simple sound converter application for the GNOME
@@ -37,7 +36,6 @@ yourself.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 desktop-file-install \
@@ -46,13 +44,10 @@ desktop-file-install \
 
 %find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc ChangeLog README TODO
 %{_bindir}/%{name}
+%{_libdir}/%{name}/python/%{name}/*
 %{_datadir}/%{name}
 %{_mandir}/man1/*
 %{_datadir}/applications/*.desktop
