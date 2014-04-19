@@ -52,7 +52,7 @@ desktop-file-install \
 %{_mandir}/man1/*
 %{_datadir}/applications/*.desktop
 %{_iconsdir}/hicolor/*/apps/*
-
+%{_datadir}/appdata/soundconverter.appdata.xml
 
 %changelog
 * Fri Jul 06 2012 Alexander Khrukin <akhrukin@mandriva.org> 2.0.3-1
