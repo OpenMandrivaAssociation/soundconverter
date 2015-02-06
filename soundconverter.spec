@@ -1,7 +1,7 @@
 Summary:	Sound converter application for the GNOME environment
 Name:		soundconverter
 Version:	2.1.2
-Release:	1
+Release:	2
 License:	GPLv3
 Group:		Sound
 URL:		http://soundconverter.berlios.de/
