@@ -11,6 +11,8 @@ BuildRequires:	gnome-python
 BuildRequires:	desktop-file-utils
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	intltool
+BuildRequires:  pkgconfig(python)
+BuildRequires:  pkgconfig(gtk+-3.0)
 Requires:	gstreamer0.10-gnomevfs
 Requires:	gnome-python-gnomevfs
 Requires:	gstreamer0.10-python
