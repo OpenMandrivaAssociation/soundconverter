@@ -1,11 +1,11 @@
 Summary:	Sound converter application for the GNOME environment
 Name:		soundconverter
-Version:	2.1.2
-Release:	2
+Version:	3.0.1
+Release:	1
 License:	GPLv3
 Group:		Sound
 URL:		http://soundconverter.berlios.de/
-Source0:	http://launchpad.net/soundconverter/trunk/2.0.1/+download/%{name}-%{version}.tar.xz
+Source0:	https://launchpad.net/soundconverter/trunk/3.0.1/+download/%{name}-%{version}.tar.xz
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	gnome-python
 BuildRequires:	desktop-file-utils
