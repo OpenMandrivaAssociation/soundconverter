@@ -6,13 +6,16 @@ License:	GPLv3
 Group:		Sound
 URL:		http://soundconverter.berlios.de/
 Source0:	https://launchpad.net/soundconverter/trunk/3.0.1/+download/%{name}-%{version}.tar.xz
-BuildRequires:	pygtk2.0-devel
+BuildRequires:	pkgconfig(pygtk-2.0)
 BuildRequires:	gnome-python
 BuildRequires:	desktop-file-utils
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	intltool
 BuildRequires:  pkgconfig(python)
 BuildRequires:  pkgconfig(gtk+-3.0)
+BuildRequires:  python3-gobject3
+BuildRequires:	gstreamer1.0-devel
+
 Requires:	gstreamer0.10-gnomevfs
 Requires:	gnome-python-gnomevfs
 Requires:	gstreamer0.10-python
