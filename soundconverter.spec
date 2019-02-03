@@ -13,7 +13,7 @@ BuildRequires:	perl(XML::Parser)
 BuildRequires:	intltool
 BuildRequires:  pkgconfig(python)
 BuildRequires:  pkgconfig(gtk+-3.0)
-BuildRequires:  python3-gobject3
+BuildRequires:  pkgconfig(pygobject-3.0)
 BuildRequires:	gstreamer1.0-devel
 
 Requires:	gstreamer0.10-gnomevfs
