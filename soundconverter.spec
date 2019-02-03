@@ -37,11 +37,14 @@ yourself.
 %setup -q
 
 %build
-%configure2_5x
-%make
+NOCONFIGURE=1 ./autogen.sh
+%configure2_5x --libdir=%{_prefix}/lib
+%make_build
 
 %install
-%makeinstall_std
+%make_install
+
+%find_lang %{name}
 
 desktop-file-install \
   --add-category="Audio" \
