@@ -4,7 +4,7 @@ Version:	2.1.2
 Release:	2
 License:	GPLv3
 Group:		Sound
-URL:		http://soundconverter.berlios.de/
+URL:		https://soundconverter.berlios.de/
 Source0:	http://launchpad.net/soundconverter/trunk/2.0.1/+download/%{name}-%{version}.tar.xz
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	gnome-python
